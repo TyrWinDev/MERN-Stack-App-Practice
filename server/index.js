@@ -6,12 +6,12 @@ import postRoutes from './routes/posts.js';
 
 const app = express();
 
-//Set the routes with the selected prefix
-app.use('/posts', postRoutes);
-
 app.use(express.json({ limit: '30Mb', extended: true }));
 app.use(express.urlencoded({ limit: '30Mb', extended: true }));
 app.use(cors());
+
+//Set the routes with the selected prefix
+app.use('/posts', postRoutes);
 
 //Connection URL This will be moved to the .env file and then imported as needed
 const CONNECTION_URL =
